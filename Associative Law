@@ -12,9 +12,9 @@ def associative_multiplication(a, b, c):
     print(f"Right associative a * (b * c): {right_associative}")
     return left_associative == right_associative
 
-# Example values
+
 a, b, c = 5, 6, 7
 
-# Checking associative properties
+
 print("Addition is associative:", associative_addition(a, b, c))
 print("Multiplication is associative:", associative_multiplication(a, b, c))
