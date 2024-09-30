@@ -1,7 +1,7 @@
 import random
 import numpy as np
 
-# Distance matrix for 4 cities
+
 distance_matrix = np.array([[0, 20, 42, 35],
                              [20, 0, 30, 34],
                              [42, 30, 0, 12],
@@ -9,7 +9,7 @@ distance_matrix = np.array([[0, 20, 42, 35],
 
 def calculate_distance(tour):
     total_distance = sum(distance_matrix[tour[i], tour[i + 1]] for i in range(len(tour) - 1))
-    total_distance += distance_matrix[tour[-1], tour[0]]  # return to the start city
+    total_distance += distance_matrix[tour[-1], tour[0]]  
     return total_distance
 
 def create_random_tour(num_cities):
@@ -19,7 +19,7 @@ def create_random_tour(num_cities):
 
 def mutate(tour):
     a, b = random.sample(range(len(tour)), 2)
-    tour[a], tour[b] = tour[b], tour[a]  # Swap two cities in the tour
+    tour[a], tour[b] = tour[b], tour[a]  
 
 def crossover(parent1, parent2):
     start, end = sorted(random.sample(range(len(parent1)), 2))
@@ -39,12 +39,12 @@ def genetic_algorithm(num_cities, population_size, generations):
     
     for _ in range(generations):
         population = sorted(population, key=calculate_distance)  # Sort by distance
-        next_generation = population[:2]  # Keep the best 2 tours
+        next_generation = population[:2]  
         
         while len(next_generation) < population_size:
             parent1, parent2 = random.choices(population[:population_size // 2], k=2)
             child = crossover(parent1, parent2)
-            if random.random() < 0.1:  # Mutation probability
+            if random.random() < 0.1:  
                 mutate(child)
             next_generation.append(child)
         
