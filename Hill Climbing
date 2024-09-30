@@ -20,6 +20,6 @@ def hill_climbing_min_cost(cost):
     
     return min(cost_from_start[n - 1], cost_from_start[n - 2])
 
-# Test the function
+
 cost = [10, 15, 20]
 print(hill_climbing_min_cost(cost))
