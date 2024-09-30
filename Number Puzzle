@@ -29,7 +29,7 @@ def generate_successors(board):
     for move in moves:
         new_x, new_y = x + move[0], y + move[1]
         if 0 <= new_x < 3 and 0 <= new_y < 3:
-            new_board = [row[:] for row in board]  # Create a copy of the board
+            new_board = [row[:] for row in board] 
             new_board[x][y], new_board[new_x][new_y] = new_board[new_x][new_y], new_board[x][y]
             successors.append(new_board)
     return successors
