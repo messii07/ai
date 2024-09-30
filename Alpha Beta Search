@@ -20,7 +20,6 @@ def minmax(depth, nodeIndex, maximizingPlayer, values, alpha, beta):
             val = minmax(depth + 1, nodeIndex * 2 + i, True, values, alpha, beta)
             best = min(best, val)
             beta = min(beta, best)
-            # Alpha-Beta Pruning
             if beta <= alpha:
                 break
         return best
